@@ -1,87 +1,62 @@
-📚 README.md
-Python-Only Chatbot using Gemini & Chainlit
-This project is an AI chatbot that:
+🧠 Gemini Python Expert Chatbot with Guardrails (Chainlit + OpenAI SDK)
+This project is an AI-powered Python expert chatbot built using:
 
-✅ Responds only to Python-related questions
-✅ Uses Gemini (via Google’s Generative Language API) as the underlying LLM
-✅ Implements guardrails to filter out non-Python topics
-✅ Runs in an interactive chat UI powered by Chainlit
+🧠 Chainlit for the chat interface
 
-✨ How it Works
-A guardrail agent checks if the user’s message is related to Python programming.
+🔒 Input guardrails to filter out non-Python queries
 
-If it is not Python-related, the chatbot replies:
+🚀 OpenAI SDK (compatible with Gemini API)
 
-Sorry, I can only answer Python-related questions.
+✅ Pydantic for schema validation
 
-Otherwise, the main agent answers the Python question using Gemini
+🔑 API integration via .env
 
-🗂 Project Structure
-project-root/
-│
-├── main.py            # Your Chainlit app with guardrails and Gemini model
-├── .env               # Stores your GEMINI_API_KEY
-├── requirements.txt   # Python dependencies
-└── README.md
+🚀 Features
+✅ Only answers Python-related questions
 
+🔍 Guardrail agent checks each question before it reaches the expert agent
 
-🔑 Environment Variables
-Create a file named .env in the project root:
+💬 Built using Chainlit for a clean chat UI
 
-GEMINI_API_KEY=your_google_gemini_api_key_here
-⚙️ Installation
+🌐 Uses Gemini API (Google) through OpenAI-compatible SDK
+
+⚙️ Fully async and scalable with Runner.run pattern
+
+📁 File Structure
+
+├── main.py              # Main chatbot logic with Chainlit events
+├── .env                 # Your Gemini API key
+├── requirements.txt     # Python dependencies
+└── README.md            # Project documentation
+
+🔧 Setup Instructions
 Clone this repo
+git clone https://github.com/your-username/python-gemini-guardrails-chatbot.git
+cd python-gemini-guardrails-chatbot
 
-🚀 Run the App
-Start Chainlit:
+Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+
+Install dependencies
+pip install -r requirements.txt
+
+Create a .env file
+GEMINI_API_KEY=your_google_gemini_api_key_here
+
+Run the app
 chainlit run main.py
 
+🧪 Example Prompts
+✅ Allowed:
 
-💬 Example
-User:
+"How do I use list comprehension in Python?"
+"What is the difference between @staticmethod and @classmethod?"
 
-How do I reverse a list in Python?
+❌ Blocked:
 
-Bot:
+"Tell me a joke."
+"What is the capital of France?"
 
-You can reverse a list using list.reverse() or with slicing like my_list[::-1].
-
-🛡 Guardrail Logic
-The guardrail agent is prompted to decide:
-
-“Is the question related to Python programming?”
-
-If not, it prevents further processing.
-
-📝 Requirements
-Python ≥ 3.9
-
-Google Gemini API key
-
-Chainlit ≥ 1.0
-
-📄 License
-MIT (or specify your license)
-
-🙌 Acknowledgments
-Chainlit
-
-Google Gemini
-
-OpenAI agent framework used in the project
-
-🤝 Contributing
-PRs welcome! Feel free to fork the repo and submit improvements.
-
-📬 Contact
-[Your Name] – [your@email.com]
-[GitHub Profile]
-
-Example requirements.txt
-If you want to create a requirements.txt, it might look like:
-
-chainlit>=1.0
-python-dotenv
-pydantic
-
-
+📜 License
+This project is open-sourced under the MIT License.
